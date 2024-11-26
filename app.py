@@ -1,8 +1,11 @@
-from flask import Flask
-from routes import home
+from fastapi import FastAPI
+from fastapi .staticfiles import StaticFiles
+from routers import index
+app = FastAPI()
 
-app = Flask(__name__)
-app.register_blueprint(home.bp)
+#app.mount("/static", StaticFiles(directory="static"), name="static")
+app.include_router(index.router)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import uvicorn
+    uvicorn.run("app:app", host='0.0.0.0', port=5000, reload=True)
