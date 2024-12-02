@@ -6,8 +6,9 @@
   <body>
     <div class="login-wrapper">
       <h1>Welcome To ZMZM HOUSE</h1>
-      
-        <!-- <h2>Login</h2>
+      <button id="Loginbutton">로그인</button>
+      <!-- <h2>Login</h2>
+        onClick="location.href='PAGENAME.html'"
         <form method="post" action="/" id="login-form">
             <input type="text" name="userName" placeholder="Email">
             <input type="password" name="userPassword" placeholder="Password">
@@ -17,25 +18,16 @@
             <input type="submit" value="Login">
         </form> -->
     </div>
-</body>
-
-<!-- <body>
-    <h1 id="title">디렉토리 GUI</h1>
-    <button id="FirstBtn">버튼</button>
-</body>
-
-
-<script>
-    const title=document.getElementById('title');
-    const btn = document.getElementById('FirstBtn');
-
-    btn.addEventListener('click', async () => { // 삭제 실행버튼
-            const response=await fetch(`/dir/test`, {method: "POST"});
-            const result = await response.text();
-            
-            console.log(result)
-            title.textContent=result;
-
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.getElementById("Loginbutton");
+      button.addEventListener("click", async function () {
+        const response = await fetch("/login");
+        const data = await response.json();
+        window.location.href = "/login";
+        console.log("Response from /login:", data);
+      });
     });
-  </script> -->
+  </script>
 </html>
