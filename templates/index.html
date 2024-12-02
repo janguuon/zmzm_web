@@ -7,16 +7,6 @@
     <div class="login-wrapper">
       <h1>Welcome To ZMZM HOUSE</h1>
       <button id="Loginbutton">로그인</button>
-      <!-- <h2>Login</h2>
-        onClick="location.href='PAGENAME.html'"
-        <form method="post" action="/" id="login-form">
-            <input type="text" name="userName" placeholder="Email">
-            <input type="password" name="userPassword" placeholder="Password">
-            <label for="remember-check">
-                <input type="checkbox" id="remember-check">아이디 저장하기
-            </label>
-            <input type="submit" value="Login">
-        </form> -->
     </div>
   </body>
   <script>
@@ -24,7 +14,6 @@
       const button = document.getElementById("Loginbutton");
       button.addEventListener("click", async function () {
         const response = await fetch("/login");
-        const data = await response.json();
         window.location.href = "/login";
         console.log("Response from /login:", data);
       });
