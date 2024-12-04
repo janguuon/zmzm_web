@@ -14,3 +14,8 @@ async def index_Page(request: Request):
 @router.get("/login", response_class=HTMLResponse)
 async def login_Page(request: Request):
     return templates.TemplateResponse("login.html", context={"request":request})
+
+
+@router.get("/join", response_class=HTMLResponse)
+async def login_Page(request: Request):
+    return templates.TemplateResponse("user_join.html", context={"request":request})

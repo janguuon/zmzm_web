@@ -13,7 +13,19 @@
     <label for="user_password">비밀번호</label>
     <input id="user_password" type="password" />
     <br />
+    <button id="login-user-button">로그인</button>
+    <button id="join-button">회원가입</button>
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.getElementById("join-button");
+      button.addEventListener("click", async function () {
+        const response = await fetch("/join");
+        window.location.href = "/join";
+        console.log("Response from /join:", data);
+      });
+    });
+  </script>
 </html>
 
 <!-- <h2>Login</h2>
