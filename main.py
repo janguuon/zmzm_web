@@ -1,9 +1,10 @@
 from fastapi import FastAPI
-from fastapi .staticfiles import StaticFiles
-from routers import index
+from routers import index, login, join
 app = FastAPI()
 
 app.include_router(index.router)
+app.include_router(login.router)
+app.include_router(join.router)
 
 if __name__ == '__main__':
     import uvicorn
