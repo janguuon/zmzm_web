@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>즈므즈므</title>
-  </head>
-  <body>
-    <div class="login-wrapper">
-      <h1>ㅈㅁㅈㅁ</h1>
-      <button id="Login-button">로그인</button>
-      <button id="">예약 - 숙박 + 강습 패키지</button>
-      <button id="">커뮤니티 - 공지사항 - 게시판</button>
-      <h3>사업자 정보</h3>
-    </div>
-  </body>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const button = document.getElementById("Login-button");
-      button.addEventListener("click", async function () {
-        const response = await fetch("/login");
-        window.location.href = "/login";
-        console.log("Response from /login:", data);
-      });
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', path='/index.css') }}">
+  <title>즈므즈므</title>
+</head>
+<body>
+  <div class="logo-wrapper">
+    <h1>ㅈㅁㅈㅁ</h1>
+  </div>
+  <div class="menu-wrapper">
+  <form>
+    <button class="login-button" id="Login-button">로그인</button>
+    <button id="">예약 - 숙박 + 강습 패키지</button>
+    <button id="">커뮤니티 - 공지사항 - 게시판</button>
+  </form>
+  </div>
+  <div class="info-wrapper">
+    사업자 정보
+  </div>
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.getElementById("Login-button");
+    button.addEventListener("click", async function () {
+      const response = await fetch("/login");
+      window.location.href = "/login";
+      console.log("Response from /login:", data);
     });
-  </script>
+  });
+</script>
 </html>
