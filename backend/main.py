@@ -1,13 +1,24 @@
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
-from routers import index, login, join
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# CORS 설정 (React에서 API 호출을 허용)
+origins = [
+    "http://localhost:3000",  # React 개발 서버
+]
 
-app.include_router(index.router)
-app.include_router(login.router)
-app.include_router(join.router)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/api/data")
+async def get_data():
+    return {"message": "Hello from FastAPI!"}
 
 if __name__ == '__main__':
     import uvicorn
